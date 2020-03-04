@@ -26,8 +26,7 @@ def call(Map config=[:]){
 	def fmt = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 	echo "Date and Time IS: " + fmt.format(now);
 	
-def build = Thread.currentThread().executable
-def buildNumber = build.number
+String buildNumber = System.getenv('JOB_NAME')
 
 	echo "Build Number is: " + buildNumber;
     
