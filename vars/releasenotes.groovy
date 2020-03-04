@@ -3,7 +3,7 @@ import groovy.io.FileType;
 
 def call(Map config=[:]){
     //def dir = new File("C:\\Code\\JenkinsGroovy\\ConsoleApp1");
-    def dir = newFile(pwd());
+    def dir = new File(pwd());
     
     new File(dir.path + '\\releasenotes.txt').withWriter('utf-8') { 
         writer -> 
