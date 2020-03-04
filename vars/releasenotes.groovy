@@ -28,13 +28,16 @@ def call(Map config=[:]){
 	
 	echo "Build Number is: ${BUILD_NUMBER}";
 	
-	def changeLogSets = currentBuild.changeSets
+	def changeLogSets = currentBuild.changeSets;
+	
+	echo "There are " + changeLogSets + " changesets.";
+	
 	for (change in changeLogSets) {
-	    def entries = change.items
+	    def entries = change.items;
 	    for (entry in entries) {
 	        echo "${entry.commitId} by ${entry.author} on ${new Date(entry.timestamp)}: ${entry.msg}"
 	        for (file in entry.affectedFiles) {
-	            echo "  ${file.editType.name} ${file.path}"
+	            echo "  ${file.editType.name} ${file.path}";
 	        }
 	    }
 	}
