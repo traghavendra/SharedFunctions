@@ -6,16 +6,17 @@ def call(Map config=[:]){
     
     echo "******************" + dir.path + "******************";
     
-    new File(dir.path + '\\releasenotes.txt').withWriter('utf-8') { 
-        writer -> 
-            dir.eachFileRecurse(FileType.ANY){ file ->
-                if (file.isDirectory()){
-                    writer.writeLine(file.name);            
-                }
-                else
-                {
-                    writer.writeLine('\t' + file.name + '\t' + file.length());
-                }
-        } 
+    var writer = new File(dir.path + '\\releasenotes.txt').withWriter('utf-8');
+    
+    var files = eachFileRecurse(FileType.ANY);
+    
+    for (file in files){
+    	if (file.isDirectory()){
+	    writer.writeLine(file.name);            
+	}
+	else
+	{
+	    writer.writeLine('\t' + file.name + '\t' + file.length());
+	}
     }
 }
