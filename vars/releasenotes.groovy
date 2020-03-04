@@ -1,6 +1,7 @@
 import java.io.File;
 import groovy.io.FileType;
 
+@NonCPS
 def call(Map config=[:]){
     def dir = new File(pwd());
     
