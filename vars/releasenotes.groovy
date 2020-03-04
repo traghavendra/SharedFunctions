@@ -11,13 +11,16 @@ def call(Map config=[:]){
     
     var files = eachFileRecurse(FileType.ANY);
     
-    for (file in files){
-    	if (file.isDirectory()){
-	    writer.writeLine(file.name);            
-	}
-	else
-	{
-	    writer.writeLine('\t' + file.name + '\t' + file.length());
-	}
+    new File(dir.path + '\\releasenotes.txt').withWriter('utf-8') { 
+        writer -> 
+            dir.eachFileRecurse(FileType.ANY){ file ->
+                if (file.isDirectory()){
+                    writer.writeLine(file.name);            
+                }
+                else
+                {
+                    writer.writeLine('\t' + file.name + '\t' + file.length());
+                }
+        } 
     }
 }
