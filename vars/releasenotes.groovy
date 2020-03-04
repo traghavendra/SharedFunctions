@@ -26,9 +26,7 @@ def call(Map config=[:]){
 	def fmt = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 	echo "Date and Time IS: " + fmt.format(now);
 	
-String buildNumber = System.getenv('JOB_NAME')
-
-	echo "Build Number is: " + buildNumber;
+	echo "Build Number is: ${BUILD_NUMBER}";
     
     if (config.changes != "false"){
     	echo "changes";
