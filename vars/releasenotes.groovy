@@ -9,16 +9,23 @@ def call(Map config=[:])
 	def dir = new File(pwd());
 	
 	echo "Preparing releasenotes.txt";
-
+	
 	new File(dir.path + '\\releasenotes.txt').withWriter('utf-8') 
 	{ 
 		writer -> 
 		
 		def now = new Date();
 		def fmt = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		
+		echo "Writing out time";
+		
 		writer.writeLine("Date and Time IS: " + fmt.format(now));
+		
+		echo "Writing build number";
 
 		writer.writeLine("Build Number is: ${BUILD_NUMBER}");
+		
+		echo "Writing changes";
 
 		if (config.changes != "false"){
 			def changeLogSets = currentBuild.changeSets;
