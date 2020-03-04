@@ -2,6 +2,7 @@ import groovy.io.FileType;
 import java.io.File;
 import java.util.Calendar.*;
 import java.text.SimpleDateFormat
+import hudson.model.*
 
 @NonCPS
 def call(Map config=[:]){
@@ -25,7 +26,10 @@ def call(Map config=[:]){
 	def fmt = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 	echo "Date and Time IS: " + fmt.format(now);
 	
-	echo "Build number is: " + manager.build.getEnvironment(manager.listener)['BUILD_NUMBER'];
+def build = Thread.currentThread().executable
+def buildNumber = build.number
+
+	echo "Build Number is: " + buildNumber;
     
     if (config.changes != "false"){
     	echo "changes";
