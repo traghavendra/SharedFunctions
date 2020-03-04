@@ -1,5 +1,6 @@
 import groovy.io.FileType;
 import java.io.File;
+import java.util.Calendar.*;
 import java.text.SimpleDateFormat
 
 @NonCPS
@@ -22,7 +23,7 @@ def call(Map config=[:]){
     
 	def now = new Date();
 	def fmt = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-	echo "Date and Time IS: " + fmt.format(date);
+	echo "Date and Time IS: " + fmt.format(now);
     
     if (config.changes != "false"){
     	echo "changes";
