@@ -2,12 +2,13 @@ import groovy.io.FileType;
 import java.io.File;
 import java.util.Calendar.*;
 import java.text.SimpleDateFormat
-import hudson.model.*
 
 @NonCPS
 def call(Map config=[:])
 {
 	def dir = new File(pwd());
+	
+	echo "Preparing releasenotes.txt";
 
 	new File(dir.path + '\\releasenotes.txt').withWriter('utf-8') 
 	{ 
