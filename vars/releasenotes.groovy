@@ -10,7 +10,7 @@ def call(Map config=[:])
 	
 	echo "Preparing releasenotes.txt at " + dir;
 	
-	new File(dir.path + '\\releasenotes.txt').withWriter('utf-8') 
+	new File(dir.path + '/releasenotes.txt').withWriter('utf-8') 
 	{ 
 		writer -> 
 		
@@ -20,7 +20,7 @@ def call(Map config=[:])
 		writer.writeLine("Date and Time IS: " + fmt.format(now));
 		writer.writeLine("Build Number is: ${BUILD_NUMBER}");
 
-		/*if (config.changes != "false"){
+		if (config.changes != "false"){
 			def changeLogSets = currentBuild.changeSets;
 
 			for (change in changeLogSets) {
@@ -42,6 +42,6 @@ def call(Map config=[:])
 			{
 				writer.writeLine('\t' + file.name + '\t' + file.length());
 			}		
-		} */
+		}
 	}
 }
