@@ -5,12 +5,6 @@ import groovy.io.FileType;
 def call(Map config=[:]){
     def dir = new File(pwd());
     
-    echo "******************" + dir.path + "******************";
-    
-    var writer = new File(dir.path + '\\releasenotes.txt').withWriter('utf-8');
-    
-    var files = eachFileRecurse(FileType.ANY);
-    
     new File(dir.path + '\\releasenotes.txt').withWriter('utf-8') { 
         writer -> 
             dir.eachFileRecurse(FileType.ANY){ file ->
