@@ -17,17 +17,10 @@ def call(Map config=[:])
 		def now = new Date();
 		def fmt = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		
-		echo "Writing out time";
-		
 		writer.writeLine("Date and Time IS: " + fmt.format(now));
-		
-		echo "Writing build number";
-
 		writer.writeLine("Build Number is: ${BUILD_NUMBER}");
-		
-		echo "Writing changes";
 
-		if (config.changes != "false"){
+		/*if (config.changes != "false"){
 			def changeLogSets = currentBuild.changeSets;
 
 			for (change in changeLogSets) {
@@ -49,6 +42,6 @@ def call(Map config=[:])
 			{
 				writer.writeLine('\t' + file.name + '\t' + file.length());
 			}		
-		} 
+		} */
 	}
 }
