@@ -1,8 +1,10 @@
 import java.io.*;
 import groovy.io.*;
 
+echo "TEST***";
+
 def call(Map config=[:]){
-    echo "TEST***";
+    
     println('***TEST');
     def dir = new File(pwd());
     
