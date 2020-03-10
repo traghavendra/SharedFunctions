@@ -1,4 +1,3 @@
-@Library('releasenotes')
 import java.io.*;
 import groovy.io.*;
 
