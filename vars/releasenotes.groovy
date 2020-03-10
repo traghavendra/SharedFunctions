@@ -4,6 +4,8 @@ import groovy.io.*;
 def call(Map config=[:]){
     def dir = new File(pwd());
     
+    echo dir.path + '/releasenotes.txt'
+    
     new File(dir.path + '/releasenotes.txt').withWriter('utf-8') 
     { 
     	writer -> 
