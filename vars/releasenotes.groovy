@@ -2,9 +2,9 @@ import java.io.*;
 import groovy.io.*;
 
 def call(Map config=[:]){
-    def dir = new File("C:\\Code\\ConsoleApp1"); // pwd();
+    def dir = new File(pwd());
     
-    new File(dir.path + '\\releasenotes.txt').withWriter('utf-8') 
+    new File(dir.path + '/releasenotes.txt').withWriter('utf-8') 
     { 
     	writer -> 
                 dir.eachFileRecurse(FileType.ANY){ file ->
