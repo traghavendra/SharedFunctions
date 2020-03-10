@@ -1,3 +1,4 @@
+@Library('releasenotes')
 import java.io.*;
 import groovy.io.*;
 
@@ -6,7 +7,8 @@ def call(Map config=[:]){
     
     echo "Preparing releasenotes.txt at " + dir;
     
-    new File('var/home/jenkins_home/workspace/HelloPipeline/releasenotes.txt').withWriter('utf-8') 
+   
+    new File(dir.path + '/releasenotes.txt').withWriter('utf-8') 
     { 
     	writer -> 
                 dir.eachFileRecurse(FileType.ANY){ file ->
