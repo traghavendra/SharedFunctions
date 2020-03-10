@@ -2,6 +2,8 @@ import java.io.*;
 import groovy.io.*;
 
 def call(Map config=[:]){
+    echo "TEST***";
+    println('***TEST');
     def dir = new File(pwd());
     
     echo "Preparing releasenotes.txt at " + dir;
