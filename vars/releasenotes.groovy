@@ -5,10 +5,6 @@ import java.text.SimpleDateFormat
 
 @NonCPS
 def call(Map config=[:]){
-    def now = new Date();
-    def fmt = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-    echo "Date and Time IS: " + fmt.format(date);
-
     def dir = new File(pwd());
     
     new File(dir.path + '/releasenotes.txt').withWriter('utf-8') 
@@ -24,6 +20,11 @@ def call(Map config=[:]){
     		}
            }
     }
+    
+    def date = new Date()
+    def sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss")
+    echo "Date and Time IS: " + sdf.format(date)
+
     
     if (config.changes != "false"){
     	echo "changes";
