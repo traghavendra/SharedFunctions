@@ -1,3 +1,4 @@
+@NonCPS
 import java.io.*;
 import groovy.io.*;
 
